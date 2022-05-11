@@ -1,0 +1,82 @@
+{
+    "name": "appmixer.apify.actors.RunActor",
+    "description": "Run an actor.",
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAuMzc1IDM5OC40MzIiPjxkZWZzPjxzdHlsZT4uYXtmaWxsOiNmZmY7b3BhY2l0eTowO30uYntmaWxsOiMwMGE3Y2U7fS5je2ZpbGw6I2ZmOTAxMjt9LmR7ZmlsbDojNmNjMDRhO308L3N0eWxlPjwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjA5NzEuNjI1IDk4LjE0NSkiPjxyZWN0IGNsYXNzPSJhIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjM5OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjA5NzIgLTk4KSIvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc4MSkiPjxwYXRoIGNsYXNzPSJiIiBkPSJNNDQzLjAyNSwyOTAuNjYxbC0xMTYuNTYxLTI2MGMyMy4yMjctNC4yLDQwLjAzOS03LjI1NSw0Mi44NzQtNy43NzhhNzAuNTksNzAuNTksMCwwLDEsMTIuMjUtLjkzOSw4My45MTMsODMuOTEzLDAsMCwxLDE3LjQ4NCwxLjc4MSw2MC40OCw2MC40OCwwLDAsMSwxOC44LDcuMjNBNDYuMDQzLDQ2LjA0MywwLDAsMSw0MzMuNSw0Ni40NTgsNTEuODg5LDUxLjg4OSwwLDAsMSw0MzguNzI0LDU4LjJhNjkuNDg1LDY5LjQ4NSwwLDAsMSwyLjc0NSwxNC44NzJjNC41MSw1Ni42MTEsMTEuNDY1LDE0OC4xNzksMTMuNjA1LDE3Ni44MjZhNTUuNiw1NS42LDAsMCwxLTMuMDYsMjEuNDUyLDk5LjUwOSw5OS41MDksMCwwLDEtOC45ODgsMTkuMzExWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAxMzUuNTM3IC0xMjAuMDgzKSIvPjxwYXRoIGNsYXNzPSJjIiBkPSJNMTYwLjc1MSw0MTguNzMyYTcyLjk5LDcyLjk5LDAsMCwxLTE0LjgzMy0xLjcyNEwyODUuNzgxLDExNC4xODlsOTkuNiwyMTMuODk0QzMwOS45NCwzNTkuNjQsMTgxLjY0MSw0MTMuMjEsMTcwLjAxMiw0MTcuNDU2QTI4LjE1NywyOC4xNTcsMCwwLDEsMTYwLjc1MSw0MTguNzMyWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjAxMzUuODc1IC0xMTguNDQ1KSIvPjxwYXRoIGNsYXNzPSJkIiBkPSJNMzUuMDg5LDM3NC40MTN2LS4wMDVoMHYwYy0uMjYzLTEuMTY3LS40OC0yLjM2Mi0uNjQ3LTMuNTUzQzMxLjU4NiwzNTAuMzcxLDIzLjYsMjk0LjIsMTUuODY3LDIzOS44NzRsLS4wMy0uMjA5QzguNjQ3LDE4OS4xMiwxLjg1NSwxNDEuMzc3LjU1OSwxMzEuOTE4QTYzLjMyMSw2My4zMjEsMCwwLDEsLjU0NCwxMTUuMjMsNTQuMTI0LDU0LjEyNCwwLDAsMSw2LjI1Nyw5Ni44OTVhNDUuNiw0NS42LDAsMCwxLDE0LjEtMTYuMDIyYzYuODE0LTQuODE0LDE1LjI3Mi04LjA5MywyNS4xMzgtOS43NDgsMjIuMDM3LTMuNyw5MS4xMTYtMTYuMDc2LDE0NS4xODYtMjUuODExTDM1LjA5LDM3NC40MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwMTkwLjYyNSAtMTIwLjE3MikiLz48L2c+PC9nPjwvc3ZnPg==",
+    "auth": {
+        "service": "appmixer:apify"
+    },
+    "quota": {
+        "manager": "appmixer:apify",
+        "maxWait": 15000,
+        "resources": "requests",
+        "scope": {
+            "userId": "{{userId}}"
+        }
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "actId": { "type": "string" },
+                    "input": { "type": "string" },
+                    "build": { "type": "string" },
+                    "timeoutSecs": { "type": "number" },
+                    "memoryMbytes": { "type": "number" },
+                    "waitSecs": { "type": "number" }
+                },
+                "required": ["actId"]
+            },
+            "inspector": {
+                "inputs": {
+                    "actId": {
+                        "type": "text",
+                        "label": "Actor ID",
+                        "index": 1
+                    },
+                    "input": {
+                        "type": "textarea",
+                        "label": "Input JSON",
+                        "tooltip": "Input JSON for the actor.",
+                        "index": 2
+                    },
+                    "build": {
+                        "type": "text",
+                        "label": "Build",
+                        "tooltip": "Tag or number of the actor build to run (e.g. beta or 1.2.345). If not provided, the run uses build tag or number from the default actor run configuration (typically latest).",
+                        "index": 3
+                    },
+                    "timeoutSecs": {
+                        "type": "number",
+                        "label": "Timeout",
+                        "tooltip": "Timeout for the actor run in seconds. Zero value means there is no timeout. If not provided, the run uses timeout of the default actor run configuration.",
+                        "index": 4
+                    },
+                    "memoryMbytes": {
+                        "type": "number",
+                        "label": "Memory",
+                        "tooltip": "Memory in megabytes which will be allocated for the new actor run. If not provided, the run uses memory of the default actor run configuration.",
+                        "index": 5
+                    },
+                    "waitSecs": {
+                        "type": "number",
+                        "label": "Wait",
+                        "tooltip": "Maximum time to wait for the actor run to finish, in seconds.",
+                        "index": 6
+                    }
+                }
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "out",
+            "options": [
+                { "value": "item", "label": "Item" },
+                { "value": "itemIndex", "label": "Item Index" },
+                { "value": "total", "label": "Total" }
+            ]
+        }
+    ]
+}
