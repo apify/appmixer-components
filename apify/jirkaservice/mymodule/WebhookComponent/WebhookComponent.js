@@ -7,6 +7,9 @@ module.exports = {
         // just log the webhookUrl 
         const webhookUrl = context.getWebhookUrl();
         await context.log({ webhookUrl });
+        // just log the triggerType
+        const { triggerType } = context.properties;
+        await context.log({ triggerType });
         // get the body of the webhook POST request. it's already parsed to JS object.
         const { data } = context.messages.webhook.content;
         // log the data we got for sanity check
