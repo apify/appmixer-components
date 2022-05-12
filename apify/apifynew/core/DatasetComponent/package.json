@@ -1,0 +1,11 @@
+{
+    "name": "apify.apifynew.core.DatasetComponent",
+    "version": "0.1.0",
+    "private": true,
+    "main": "DatasetComponent.js",
+    "author": "Apify team",
+    "dependencies": {
+        "apify-client": "2.3.1",
+        "tslib": "2.4.0"
+    }
+}

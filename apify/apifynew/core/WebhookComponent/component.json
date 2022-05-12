@@ -1,0 +1,64 @@
+{
+    "name": "apify.apifynew.core.WebhookComponent",
+    "author": "Apify team",
+    "description": "This component can be triggered by any Actor run.",
+    "private": false,
+    "webhook": true,
+    "quota": {
+        "manager": "apify:apify",
+        "resources": "requests"
+    },
+    "properties": {
+        "schema": {
+            "properties": {
+                "triggerType": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "triggerType"
+            ]
+        },
+        "inspector": {
+            "inputs": {
+                "triggerType": {
+                    "type": "multiselect",
+                    "index": 1,
+                    "options": [
+                        { "content": "Run created", "value": "CREATED" },
+                        { "content": "Run succeeded", "value": "SUCCEEDED" },
+                        { "content": "Run failed", "value": "FAILED" },
+                        { "content": "Run timed out", "value": "TIMEDOUT" },
+                        { "content": "Run aborted", "value": "ABORTED" },
+                        { "content": "Run resurrected", "value": "RESURRECTED" }
+                    ],
+                    "placeholder": "-- Select something --",
+                    "label": "Select trigger type"
+                }
+            }
+        }
+    },
+    "outPorts": [
+        {
+            "name": "actorData",
+            "options": [
+                {
+                    "label": "Actor ID",
+                    "value": "eventData.actorId"
+                },
+                {
+                    "label": "Actor run ID",
+                    "value": "eventData.actorRunId"
+                },
+                {
+                    "label": "Dataset ID",
+                    "value": "resource.defaultDatasetId"
+                }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgNDAgNDAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ4LjEgKDQ3MjUwKSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5BcGlmeSBsb2dvPC90aXRsZT4KICAgIDxkZXNjPkFwaWZ5IGxvZ288L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0ibG9nby1mdWxsIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICA8cGF0aCBjbGFzcz0iZ3JlZW4iIGQ9Ik01LjMwOSw0Ljc1NSBDMS45MzksNS4xODcgLTAuNDExLDguMDQyIDAuMDYsMTEuMTMzIEwzLjY5NiwzNSBMMTksMyBMNS4zMDksNC43NTUgWiIgaWQ9IlNoYXBlIiBmaWxsPSIjOTdENzAwIj48L3BhdGg+CiAgICAgICAgICAgIDxwYXRoIGNsYXNzPSJibHVlIiBkPSJNMzkuOTg2LDIzLjEzMyBMMzguNjg5LDUuMTQ1IEMzOC40NTgsMS45NDcgMzUuNTQ1LC0wLjM5IDMyLjM0MiwwLjA1NSBMMjcsMC43OTQgTDM4Ljc2NSwyNyBDMzkuNjQ5MDUzNywyNS45MTMyNzYyIDQwLjA4NTM2OTEsMjQuNTMwMjk5NCAzOS45ODUsMjMuMTMzIiBpZD0iU2hhcGUiIGZpbGw9IiM3MUM1RTgiPjwvcGF0aD4KICAgICAgICAgICAgPHBhdGggY2xhc3M9Im9yYW5nZSIgZD0iTTksMzkuOTY1IEM5Ljk5MDQzNjUxLDQwLjA3MzA3MDYgMTAuOTkyMTQ3OSwzOS45MzAzNjE5IDExLjkxMywzOS41NSBMMzMsMzAuODg2IEwyMi45NzUsOSBMOSwzOS45NjUgWiIgaWQ9IlNoYXBlIiBmaWxsPSIjRkY5MDEzIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K"
+}

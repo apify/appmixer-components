@@ -14,8 +14,8 @@ module.exports = {
         const { data } = context.messages.webhook.content;
         // log the data we got for sanity check
         await context.log(data);
-        // send the eventData object to the `eventData` outPort
-        // the `value` in `options` of `eventData` outPort references properties of this `data.eventData` object
-        context.sendJson(data.eventData, 'eventData');
+        // send the data object to the `actorData` outPort
+        // the `value` in `options` of `actorData` outPort references properties of this `data` object
+        context.sendJson(data, 'actorData');
     }
 }
