@@ -1,0 +1,8 @@
+{
+    "name": "apify.apifynew.mymodule.WebhookComponent",
+    "version": "0.1.0",
+    "private": true,
+    "main": "MyComponent.js",
+    "author": "Apify team",
+    "dependencies": {}
+}

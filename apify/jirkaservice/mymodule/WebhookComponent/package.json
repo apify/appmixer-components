@@ -1,8 +1,0 @@
-{
-    "name": "apify.jirkaservice.mymodule.WebhookComponent",
-    "version": "0.1.0",
-    "private": true,
-    "main": "MyComponent.js",
-    "author": "Your name <jiri.moravcik@apify.com>",
-    "dependencies": {}
-}
