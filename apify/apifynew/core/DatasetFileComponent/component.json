@@ -7,6 +7,44 @@
         "manager": "apify:apify",
         "resources": "requests"
     },
+    "properties": {
+        "schema": {
+            "type": "object",
+            "properties": {
+                "fileFormat": {
+                    "type": "string"
+                },
+                "fileName": {
+                    "type": "string"
+                }
+            },
+            "required": ["fileFormat", "fileName"]
+        },
+        "inspector": {
+            "inputs": {
+                "fileFormat": {
+                    "type": "select",
+                    "index": 1,
+                    "options": [
+                        { "content": "JSON", "value": "json" },
+                        { "content": "XML", "value": "xml" },
+                        { "content": "HTML", "value": "html" },
+                        { "content": "CSV", "value": "csv" },
+                        { "content": "XLSX", "value": "xlsx" },
+                        { "content": "RSS", "value": "rss" }
+                    ],
+                    "placeholder": "-- Select something --",
+                    "label": "Select file format"
+                },
+                "fileName": {
+                    "type": "text",
+                    "index": 2,
+                    "defaultValue": "dataset",
+                    "label": "Name of the file WITHOUT the extension"
+                }
+            }
+        }
+    },
     "inPorts": [
         {
             "name": "actorData",

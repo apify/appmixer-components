@@ -7,8 +7,8 @@ const mime = require('mime');
 module.exports = {
 
     async receive(context) {
-        const format = 'html';
-        const fileName = `dataset_output.${format}`;
+        const format = context.properties.fileFormat;
+        const fileName = `${context.properties.fileName}.${format}`;
         const datasetId = context.messages.actorData.content.resource.defaultDatasetId;
         await context.log({ datasetId });
 
