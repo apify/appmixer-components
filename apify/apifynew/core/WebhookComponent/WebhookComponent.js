@@ -17,5 +17,7 @@ module.exports = {
         // send the data object to the `actorData` outPort
         // the `value` in `options` of `actorData` outPort references properties of this `data` object
         context.sendJson(data, 'actorData');
+        // Return a HTTP response to indicate success
+        return context.response('', 200);
     }
 }
