@@ -1,0 +1,120 @@
+{
+    "name": "appmixer.customGoogle.gmail.SendEmail",
+    "author": "Martin Krčmář <martin@client.io>",
+    "description": "Send a new email.",
+    "auth": {
+        "service": "appmixer:customGoogle:gmail",
+        "scope": [
+            "https://mail.google.com/",
+            "https://www.googleapis.com/auth/gmail.compose",
+            "https://www.googleapis.com/auth/gmail.send"
+        ]
+    },
+    "quota": {
+        "manager": "appmixer:customGoogle:gmail",
+        "maxWait": 5000,
+        "resources": "messages.send",
+        "scope": {
+            "userId": "{{userId}}"
+        }
+    },
+    "inPorts": [
+        {
+            "name": "in",
+            "inspector": {
+                "inputs": {
+                    "from": {
+                        "type": "text",
+                        "index": 1,
+                        "label": "From",
+                        "tooltip": "The email address that you have authenticated with or one of your valid aliases. Anything else will be ignored and will default to your primary email address."
+                    },
+                    "sender": {
+                        "type": "text",
+                        "index": 2,
+                        "label": "From Name",
+                        "tooltip": "The name of the author of the message. This won't work if you have invalid email address in the From field."
+                    },
+                    "to": {
+                        "type": "text",
+                        "index": 3,
+                        "label": "To",
+                        "tooltip": "The email address of the message's recipient."
+                    },
+                    "subject": {
+                        "type": "text",
+                        "index": 4,
+                        "label": "Subject",
+                        "tooltip": "The subject of the message."
+                    },
+                    "text": {
+                        "type": "textarea",
+                        "index": 5,
+                        "label": "Text",
+                        "tooltip": "The body of the message."
+                    },
+                    "html": {
+                        "type": "textarea",
+                        "index": 6,
+                        "label": "HTML",
+                        "tooltip": "HTML body of the message."
+                    },
+                    "attachments": {
+                        "type": "expression",
+                        "label": "Attachments",
+                        "tooltip": "Attachments for the email message.",
+                        "index": 7,
+                        "levels": [ "ADD" ],
+                        "fields": {
+                            "fileId": {
+                                "type": "filepicker",
+                                "label": "File",
+                                "tooltip": "The file to attach.",
+                                "index": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "sender": {
+                        "type": "string"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "email"
+                    },
+                    "subject": {
+                        "type": "string"
+                    },
+                    "text": {
+                        "type": "string"
+                    },
+                    "html": {
+                        "type": "string"
+                    },
+                    "attachments": {}
+                },
+                "required": [
+                    "to"
+                ]
+            }
+        }
+    ],
+    "outPorts": [
+        {
+            "name": "email",
+            "options": [
+                { "label": "id", "value": "id" },
+                { "label": "threadId", "value": "threadId" }
+            ]
+        }
+    ],
+    "icon": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0NTU1NSAzMzA5NyI+CiA8Zz4KICA8cGF0aCBmaWxsPSIjRTc1QTREIiBkPSJNNDE2MDggMjUwYzIwMzAsMCAzNjkxLDE2NjEgMzY5MSwzNjkxbDAgMTA3MCAtNTEyOCAzNjYzIC0xNzQ1OCAxMjAyNiAtMTc0NTggLTEyMTQ4IDAgMjQyOTUgLTEzMTQgMGMtMjAzMCwwIC0zNjkxLC0xNjYxIC0zNjkxLC0zNjkxbDAgLTI1MjE0YzAsLTIwMzAgMTY2MSwtMzY5MSAzNjkxLC0zNjkxbDE4NzcyIDEzOTE4IDE4ODk0IC0xMzkxOHoiLz4KICA8cG9seWdvbiBmaWxsPSIjRTdFNEQ3IiBwb2ludHM9IjUyNTUsODU1MiA1MjU1LDMyODQ3IDQwMTcyLDMyODQ3IDQwMTcyLDg2NzQgMjI3MTMsMjA3MDAgIi8+CiAgPHBvbHlnb24gZmlsbD0iI0I4QjdBRSIgcG9pbnRzPSI1MjU1LDMyODQ3IDIyNzEzLDIwNzAwIDIyNjM0LDIwNjQ0IDUyNTUsMzI1ODAgIi8+CiAgPHBvbHlnb24gZmlsbD0iI0I3QjZBRCIgcG9pbnRzPSI0MDE3Miw4Njc0IDQwMTgyLDMyODQ3IDIyNzEzLDIwNzAwICIvPgogIDxwYXRoIGZpbGw9IiNCMjM5MkYiIGQ9Ik00NTI5OSA1MDExbDYgMjQxNDhjLTg4LDI2ODQgLTEyNTEsMzY0MiAtNTEyMywzNjg3bC0xMCAtMjQxNzMgNTEyOCAtMzY2M3oiLz4KICA8cG9seWdvbiBmaWxsPSIjRjdGNUVEIiBwb2ludHM9IjM5NDEsMjUwIDIyNzEzLDE0MTY4IDQxNjA4LDI1MCAiLz4KIDwvZz4KPC9zdmc+Cg=="
+}

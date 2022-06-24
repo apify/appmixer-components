@@ -1,0 +1,7 @@
+{
+    "name": "appmixer.customGoogle.spreadsheets",
+    "version": "1.0.0",
+    "dependencies": {
+        "googleapis": "^12.2.0"
+    }
+}

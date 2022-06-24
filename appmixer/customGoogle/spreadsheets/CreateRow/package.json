@@ -1,0 +1,11 @@
+{
+    "name": "appmixer.customGoogle.spreadsheets.CreateRow",
+    "version": "0.1.0",
+    "description": "Grid component for google sheets, create row",
+    "private": true,
+    "main": "CreateRow.js",
+    "author": "Tomáš Waldauf <tomas@client.io>",
+    "dependencies": {
+        "feedme": "^0.3.0"
+    }
+}
