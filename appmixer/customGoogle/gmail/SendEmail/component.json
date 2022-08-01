@@ -3,10 +3,8 @@
     "author": "Martin Krčmář <martin@client.io>",
     "description": "Send a new email.",
     "auth": {
-        "service": "appmixer:customGoogle:gmail",
+        "service": "appmixer:customGoogle",
         "scope": [
-            "https://mail.google.com/",
-            "https://www.googleapis.com/auth/gmail.compose",
             "https://www.googleapis.com/auth/gmail.send"
         ]
     },
